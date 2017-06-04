@@ -1,8 +1,6 @@
-"""__main_production_code__ Basic functionalities for extracting the data from NSE and processing it. Nothing much but to imporve the code oops can be applied to 
+"""__Main_code__,Basic functionalities for extracting the data from NSE and processing it. Nothing much but to imporve the code oops can be applied to 
 	imporve the modularity and better functioning. Feel free to modify the code and git it."""
 
-
-import pandas as pd
 import datetime
 import requests
 import os, zipfile
