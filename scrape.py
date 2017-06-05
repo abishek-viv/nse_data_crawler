@@ -12,10 +12,12 @@ month_in_num=5
 
 file_path=os.getcwd()
 
-###getting the current dir path and adding "/bhav_cpy" is to create a desired dir name
-directory_to_bhav = file_path + "/BHAV_CPY"			
-directory_to_oi = file_path + "/OI"
-directory_to_vol = file_path + "/VOLATILITY"
+###getting the current dir path and adding "/bhav_cpy" is to create a desired dir name. Path file was created with linux while
+###developing, do change it accordingly to your OS.
+
+directory_to_bhav = file_path + "/BHAV_CPY"			#update the path file according to the OS
+directory_to_oi = file_path + "/OI"				#update the path file according to the OS
+directory_to_vol = file_path + "/VOLATILITY"			#update the path file according to the OS
 ###testing the creation of the current dir thing is working
 
 """print (directory)							 	
