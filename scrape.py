@@ -130,7 +130,7 @@ def Unzipper(unzip_directory):
 		zip.close()
 
 def Full_Extension_Clean():   #for cleaning the unwanted extensions in the dir
-	#directory = ["/home/codesmith/projects/scrapping/alchemy_scrape/OI/","/home/codesmith/projects/scrapping/alchemy_scrape/BHAV_CPY/","/home/codesmith/projects/scrapping/alchemy_scrape/VOLATILITY/"]
+	#directory = ["full_path_oi","full_path_bhav_cpy","full_path_vol"]
 	directory =[directory_to_bhav,directory_to_vol,directory_to_oi]  
 	#print directory[0]
 	for i in range(len(directory)):
