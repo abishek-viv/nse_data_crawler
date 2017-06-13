@@ -1,5 +1,5 @@
 # nse_data_crawler
-====for linux based system the path file is ok but for windows users change the path file accordingly=======
+====For linux based system path file works cool but for windows, users need to update the path file accordingly
 
 --->This is to extract the historical data of bhav_cpy,OI and volatility file from NSE.
 
@@ -10,3 +10,5 @@
 --->Changes or slight modification can be done to improve the code efficiency.
 
 --->Improved version to process the extracted .csv can be found here soon...
+
+====added code for cleaning the data in the directories
