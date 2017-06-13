@@ -1,9 +1,10 @@
 """__Main_code__,Basic functionalities for extracting the data from NSE and processing it. Nothing much but to imporve the code oops can be applied to 
 	imporve the modularity and better functioning. Feel free to modify the code and git it."""
 
+import pandas as pd
 import datetime
 import requests
-import os, zipfile
+import os, zipfile,sys
 from os import listdir
 from os.path import isfile, join
 
@@ -12,12 +13,10 @@ month_in_num=5
 
 file_path=os.getcwd()
 
-###getting the current dir path and adding "/bhav_cpy" is to create a desired dir name. Path file was created with linux while
-###developing, do change it accordingly to your OS.
-
-directory_to_bhav = file_path + "/BHAV_CPY"			#update the path file according to the OS
-directory_to_oi = file_path + "/OI"				#update the path file according to the OS
-directory_to_vol = file_path + "/VOLATILITY"			#update the path file according to the OS
+###getting the current dir path and adding "/bhav_cpy" is to create a desired dir name
+directory_to_bhav = file_path + "/BHAV_CPY"			
+directory_to_oi = file_path + "/OI"
+directory_to_vol = file_path + "/VOLATILITY"
 ###testing the creation of the current dir thing is working
 
 """print (directory)							 	
@@ -130,21 +129,42 @@ def Unzipper(unzip_directory):
 		zip.extractall(unzip_directory)
 		zip.close()
 
+def Full_Extension_Clean():   #for cleaning the unwanted extensions in the dir
+	#directory = ["/home/codesmith/projects/scrapping/alchemy_scrape/OI/","/home/codesmith/projects/scrapping/alchemy_scrape/BHAV_CPY/","/home/codesmith/projects/scrapping/alchemy_scrape/VOLATILITY/"]
+	directory =[directory_to_bhav,directory_to_vol,directory_to_oi]  
+	#print directory[0]
+	for i in range(len(directory)):
+	    test = os.listdir( directory[i] )
+	    #print test
+	    removable_file = (".zip",".xml")
+	    for item in test:
+	        #print item
+	        if item.endswith(removable_file):
+	            os.remove(os.path.join(directory[i], item )) #merging the contents to the dir which is being read
+
 ###main function to define the working of the project
 if __name__ == '__main__':
-	print "======"*10
-	print "Extracting the Bhav copy\n" 
-	Monthly_bhav(directory_to_bhav)
-	print "unzippping...\n"
-	Unzipper(directory_to_bhav)
-	print "Bhav copy extraction complete\n"
-	print "======"*10
-	print "Extracting the OI\n"
-	Open_interest(directory_to_oi)
-	print "unzippping...\n"
-	Unzipper(directory_to_oi)
-	print "OI extraction complete\n"
-	print "======"*10
-	print "Extracting the Volatility file\n"
-	Volatility(directory_to_vol)
-	print "Volatility file extraction complete"
+	if not os.path.exists(directory_to_bhav):
+			print "======"*10
+			print "Extracting the Bhav copy\n" 
+			Monthly_bhav(directory_to_bhav)
+			print "unzippping...\n"
+			Unzipper(directory_to_bhav)
+			print "Bhav copy extraction complete\n"
+			print "======"*10
+			print "Extracting the OI\n"
+			Open_interest(directory_to_oi)
+			print "unzippping...\n"
+			Unzipper(directory_to_oi)
+			print "OI extraction complete\n"
+			print "======"*10
+			print "Extracting the Volatility file\n"
+			Volatility(directory_to_vol)
+			print "Volatility file extraction complete"
+			print "======"*10 
+			print "cleaning all directories"
+			Full_Extension_Clean()
+			print "Data cleaning Successful"
+			print "+++++++End of program+++++++"
+	else:
+		print "Files already present=====?????"
