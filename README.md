@@ -1,9 +1,9 @@
 # nse_data_crawler
 ====For linux based system path file works cool but for windows, users need to update the path file accordingly
 
---->This is to extract the historical data of bhav_cpy,OI and volatility file from NSE.
+--->This is to extract the historical data of BHAV_CPY, OI and VOLATILITY file from NSE (National Stock Exchange).
 
---->Current script extracts the data for the month of may. Change the month variable in the code to get the data for desired month.
+--->Current script extracts the data for the month of May. Changing the month variable in the code provides data for the desired month.
 
 --->Holidays variable should be changed according to the holidays in the month including saturdays and sundays, otherwise contamination to the file is imminent and it casues problem while unzipping.
 
